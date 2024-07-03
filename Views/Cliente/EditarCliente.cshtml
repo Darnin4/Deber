@@ -1,0 +1,80 @@
+﻿@model AppLogins.ViewModels.EditarClienteVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Editar.css" asp-append-version="true" />
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="titulo-formulario">Editar Cliente</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="EditarClientePost" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Nombres">Nombres</label>
+                            <input asp-for="Nombres" class="form-control" />
+                            <span asp-validation-for="Nombres" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Apellidos">Apellidos</label>
+                            <input asp-for="Apellidos" class="form-control" />
+                            <span asp-validation-for="Apellidos" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Cedula">Cédula</label>
+                            <input asp-for="Cedula" class="form-control" />
+                            <span asp-validation-for="Cedula" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Direccion">Dirección</label>
+                            <input asp-for="Direccion" class="form-control" />
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Telefono">Teléfono</label>
+                            <input asp-for="Telefono" class="form-control" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Estado">Estado</label>
+                            <select asp-for="Estado" class="form-control">
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                            </select>
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="FechaCreacion">Fecha de Creación</label>
+                            <input asp-for="FechaCreacion" class="form-control" disabled />
+                            <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a asp-action="MostrarClientes" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

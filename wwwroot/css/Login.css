@@ -1,0 +1,78 @@
+﻿body {
+    background-color: #f0f0f5; /* Fondo gris claro */
+    color: #333; /* Texto gris oscuro */
+    font-family: Arial, sans-serif; /* Fuente general */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+.card {
+    background-color: #007bff; /* Fondo de tarjeta azul */
+    color: #ffffff; /* Texto blanco */
+    border: 1px solid #0056b3; /* Borde azul oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* Sombra ligera azul */
+    margin: 20px auto; /* Margen y centrado */
+    max-width: 600px; /* Ancho máximo */
+    padding: 20px; /* Espaciado interno */
+}
+
+.card-header {
+    background-color: #0056b3; /* Fondo de encabezado de tarjeta azul oscuro */
+    color: #ffffff; /* Texto blanco */
+    text-align: center; /* Alineación centrada */
+    font-weight: bold; /* Texto en negrita */
+    padding: 10px; /* Espaciado interno */
+    border-top-left-radius: 8px; /* Bordes redondeados en la esquina superior izquierda */
+    border-top-right-radius: 8px; /* Bordes redondeados en la esquina superior derecha */
+    border-bottom: 1px solid #004d99; /* Borde inferior azul más oscuro */
+}
+
+.form-control {
+    background-color: #ffffff; /* Fondo de entrada blanco */
+    color: #333; /* Texto gris oscuro */
+    border: 1px solid #007bff; /* Borde azul */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    width: 100%; /* Ancho completo */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Transiciones suaves */
+}
+
+    .form-control::placeholder {
+        color: #999; /* Color de placeholder gris más claro */
+    }
+
+.form-group {
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Fondo de botón azul */
+    border: none; /* Sin borde */
+    color: #ffffff; /* Texto blanco */
+    padding: 12px 24px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar cursor al pasar el ratón */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Fondo de botón azul más oscuro al pasar el ratón */
+    }
+
+.alert-danger {
+    background-color: #e57373; /* Fondo de alerta rojo claro */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Margen inferior */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+a {
+    color: #007bff; /* Enlaces azules */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s ease; /* Transición suave de color */
+}
+
+    a:hover {
+        color: #0056b3; /* Enlaces azules más oscuro al pasar el ratón */
+    }

@@ -1,0 +1,73 @@
+﻿@model AppLogins.ViewModels.UsersVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<html>
+<head>
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/Registro.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container mt-5 justify-content-center">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    Usuarios
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Users" asp-action="RegistroUsers" method="post">
+                        <div class="form-group">
+                            <label asp-for="NombreUsuario" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="NombreUsuario" />
+                            <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Clave" class="control-label"></label>
+                            <input class="form-control mb-3" type="password" asp-for="Clave" />
+                            <span asp-validation-for="Clave" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Rol" class="control-label"></label>
+                            @Html.DropDownListFor(model => model.Rol, new SelectList(Model.Roles), new { @class = "form-control mb-3" })
+                            <span asp-validation-for="Rol" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Estado" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Estado" readonly />
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FechaCreacion" class="control-label"></label>
+                            <input class="form-control mb-3" type="datetime-local" asp-for="FechaCreacion" />
+                            <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-primary" type="submit">Guardar Usuario</button>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a class="btn btn-secondary" asp-controller="Users" asp-action="MostrarUsers">Ver Usuarios</a>
+                        </div>
+
+                        @if (ViewData["Mensaje"] != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+                        }
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

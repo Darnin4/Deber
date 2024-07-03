@@ -1,0 +1,102 @@
+﻿body {
+    background-color: #f0f0f0; /* Fondo gris claro */
+    color: #333; /* Texto negro */
+    font-family: Arial, sans-serif; /* Fuente del texto */
+}
+
+.container {
+    max-width: 1100px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff; /* Fondo de tarjeta blanco */
+    color: #333; /* Texto negro */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra ligera */
+    margin-bottom: 20px; /* Espacio inferior entre tarjetas */
+}
+
+.card-header {
+    background-color: #000000; /* Fondo de encabezado negro */
+    color: #ff0000; /* Texto rojo */
+    text-align: center; /* Alineación centrada */
+    padding: 10px 0; /* Relleno superior e inferior */
+    border-top-left-radius: 5px; /* Bordes redondeados en la esquina superior izquierda */
+    border-top-right-radius: 5px; /* Bordes redondeados en la esquina superior derecha */
+}
+
+.card-body {
+    padding: 20px; /* Relleno interior */
+}
+
+.table {
+    width: 100%; /* Ancho completo de la tabla */
+    border-collapse: collapse; /* Colapso de bordes de tabla */
+    background-color: #fff; /* Fondo blanco */
+}
+
+    .table th,
+    .table td {
+        padding: 10px; /* Relleno de celda */
+        text-align: left; /* Alineación izquierda */
+        border-bottom: 1px solid #ddd; /* Borde inferior gris claro */
+    }
+
+    .table th {
+        background-color: #000000; /* Fondo negro para encabezados */
+        font-weight: bold; /* Texto en negrita */
+        color: #ff0000; /* Texto rojo */
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #f9f9f9; /* Fondo gris claro alternado */
+    }
+
+    .table tbody tr:hover {
+        background-color: #f0f0f0; /* Fondo gris claro al pasar el ratón */
+    }
+
+    .table td.clave {
+        font-family: 'Courier New', monospace; /* Fuente de tipo máquina de escribir para la clave */
+        color: transparent; /* Texto transparente para ocultar la clave */
+        text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Sombra de texto para simular asteriscos */
+        letter-spacing: 2px; /* Espaciado de letra para simular asteriscos */
+    }
+
+a {
+    color: #ff0000; /* Enlaces rojos */
+}
+
+    a:hover {
+        color: #d32f2f; /* Enlaces rojos más oscuro al pasar el ratón */
+    }
+
+/* Cambia el color de fondo y el color del texto del botón de editar */
+.btn-editar {
+    width: 100px; /* Ancho fijo */
+    padding: 8px 16px; /* Ajuste de padding para tamaño */
+    background-color: #d32f2f !important; /* Color rojo */
+    color: white !important; /* Color del texto */
+    border: none !important; /* Sin borde */
+}
+
+/* Cambia el color de fondo y el color del texto del botón de eliminar */
+.btn-eliminar {
+    width: 100px; /* Ancho fijo */
+    padding: 8px 16px; /* Ajuste de padding para tamaño */
+    background-color: #000000 !important; /* Color negro */
+    color: white !important; /* Color del texto */
+    border: none !important; /* Sin borde */
+}
+
+/* Opcional: cambia el color de fondo cuando el botón está en estado hover */
+.btn-editar:hover {
+    background-color: #b22a2a !important; /* Rojo más oscuro */
+}
+
+.btn-eliminar:hover {
+    background-color: #1a1a1a !important; /* Negro más oscuro */
+}

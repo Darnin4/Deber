@@ -1,0 +1,62 @@
+﻿@model AppLogins.ViewModels.EditarProductoVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Editar.css" asp-append-version="true" />
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="titulo-formulario">Editar Producto</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="EditarProductoPost" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="IdTipo" class="control-label"></label>
+                    <input asp-for="IdTipo" class="form-control" />
+                    <span asp-validation-for="IdTipo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Iva" class="control-label"></label>
+                    <input asp-for="Iva" class="form-control" />
+                    <span asp-validation-for="Iva" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CodigoBarras" class="control-label"></label>
+                    <input asp-for="CodigoBarras" class="form-control" />
+                    <span asp-validation-for="CodigoBarras" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Estado" class="control-label"></label>
+                    <select asp-for="Estado" class="form-control">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a asp-action="MostrarProductos" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

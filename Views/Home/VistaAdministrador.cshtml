@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Hola Admin</h1>
+<br />
+<p>Eres un usuario Administrador Bienvenido.</p>
+
+
+
+@using System.Security.Claims;
+@{
+    ViewData["Title"] = "Bienvenido a Sweet Delights";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="text-center">
+            @if (User.Identity!.IsAuthenticated)
+            {
+                <h1 class="display-4">Hola  @User.Claims.Where(c => c.Type == ClaimTypes.Name).Select(c => c.Value).SingleOrDefault() estas en el sitio de Sweet Delights.</h1>
+
+
+                <img src="~/images/Candy.jpg" class="img-fluid rounded mb-4" alt="Sweet Delights - Tienda de Golosinas" style="max-width: 400px; height: auto;">
+
+
+                <p class="text-muted">Nuestro espacio está diseñado para capturar la alegría y la emoción de los dulces. Cada visita a Sweet Delights es una invitación a descubrir nuevos sabores y crear recuerdos dulces e inolvidables.</p>
+
+                <p class="text-muted">Ven y explora nuestras estanterías llenas de coloridas golosinas, donde cada producto cuenta una historia de sabor y calidad. ¡Déjate tentar por la dulzura en Sweet Delights!</p>
+            }
+        </div>
+    </div>
+</div>

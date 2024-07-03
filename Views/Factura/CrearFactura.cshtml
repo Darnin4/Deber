@@ -1,0 +1,166 @@
+﻿@model AppLogins.ViewModels.FacturaVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Factura</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/Factura.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h1>FACTURA "Sweet Delights"</h1>
+                    
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Factura" asp-action="CrearFactura" method="post" id="formCrearFactura">
+                        <!-- Resto de tu formulario -->
+
+                        <div class="form-group">
+                            <label asp-for="Fecha" class="control-label">Fecha</label>
+                            <input class="form-control mb-3" type="datetime-local" asp-for="Fecha" />
+                            <span asp-validation-for="Fecha" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="cliente-select">Cliente</label>
+                            <select id="cliente-select" asp-for="IdCliente" class="form-control mb-3">
+                                <option value="">Seleccione un cliente</option>
+                                @foreach (var cliente in Model.Clientes)
+                                {
+                                    <option value="@cliente.Id">@cliente.Cedula</option>
+                                }
+                            </select>
+                        </div>
+                        <h2>Datos del Cliente</h2>
+
+                        <div id="cliente-info" class="mb-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nombre:</label>
+                                        <input id="nombre-cliente" class="form-control" type="text" disabled />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Apellido:</label>
+                                        <input id="apellido-cliente" class="form-control" type="text" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Dirección:</label>
+                                        <input id="direccion-cliente" class="form-control" type="text" disabled />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Teléfono:</label>
+                                        <input id="telefono-cliente" class="form-control" type="text" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Productos</h3>
+                        <div class="form-group">
+                            <label for="producto-select">Seleccione un producto</label>
+                            <select id="producto-select" class="form-control mb-3">
+                                <option value="">Seleccione un producto</option>
+                                @foreach (var producto in Model.Productos)
+                                {
+                                    <option value="@producto.Id">@producto.Nombre</option>
+                                }
+                            </select>
+
+                            <div class="form-group">
+                                <label>Cantidad</label>
+                                <input type="number" id="Cantidad" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Precio</label>
+                                <input type="number" id="Precio" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Descuento</label>
+                                <input type="number" id="Descuento" class="form-control" />
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <button id="agregar-producto" class="btn btn-primary" type="button">Agregar Producto</button>
+                            </div>
+                        </div>
+
+                        <!-- Detalle de la factura -->
+                        <h3>Detalle de la Factura</h3>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>Descuento</th>
+                                    <th>Total</th>
+                                    <th>Accion</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="productos-seleccionados">
+                                <!-- Aquí se agregará dinámicamente el detalle de la factura -->
+                            </tbody>
+                        </table>
+
+                        <!-- Campos de totales -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>SubTotal:</label>
+                                    <input id="sub-total" class="form-control mb-3" type="text" readonly />
+                                </div>
+                                <div class="form-group">
+                                    <label>Iva:</label>
+                                    <input id="iva" class="form-control mb-3" type="text" readonly />
+                                </div>
+                                <div class="form-group">
+                                    <label>Total:</label>
+                                    <input id="total" class="form-control mb-3" type="text" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-grid gap-2 mb-3">
+                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                </div>
+                                <div class="d-grid gap-2 mt-3">
+                                    <a class="btn btn-secondary" asp-controller="Factura" asp-action="Index">Ver Facturas</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mensaje de error -->
+                        @if (ViewData["Mensaje"] != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/js/Cliente.js"></script>
+    
+</body>
+</html>

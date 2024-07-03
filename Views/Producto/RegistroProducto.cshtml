@@ -1,0 +1,82 @@
+﻿@model AppLogins.ViewModels.ProductoVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Productos</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/Registro.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container mt-5 justify-content-center">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    Productos
+                </div>
+
+                <div class="card-body">
+                    <form asp-controller="Producto" asp-action="RegistroProducto" method="post">
+                        <div class="form-group">
+                            <label asp-for="Nombre" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Nombre" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IdTipo" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="IdTipo" />
+                            <span asp-validation-for="IdTipo" class="text-danger"></span>
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <label asp-for="Iva" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Iva" />
+                            <span asp-validation-for="Iva" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CodigoBarras" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="CodigoBarras" />
+                            <span asp-validation-for="CodigoBarras" class="text-danger"></span>
+                        </div>
+                      
+                        <div class="form-group">
+                            <label asp-for="Estado" class="control-label"></label>
+                            <select asp-for="Estado" class="form-control">
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                            </select>
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FechaCreacion" class="control-label"></label>
+                            <input class="form-control mb-3" type="datetime-local" asp-for="FechaCreacion" />
+                            <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-primary" type="submit">Guardar Producto</button>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a class="btn btn-secondary" asp-controller="Producto" asp-action="MostrarProductos">Ver Productos</a>
+                        </div>
+                        @if (ViewData["Mensaje"] != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+                        }
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

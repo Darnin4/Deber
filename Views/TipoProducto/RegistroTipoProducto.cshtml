@@ -1,0 +1,65 @@
+﻿@model AppLogins.ViewModels.TipoProductoVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Registro de Tipo de Producto</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Incluir otros estilos si es necesario -->
+    <link rel="stylesheet" href="~/css/Registro.css" asp-append-version="true" />
+
+</head>
+<body>
+    <div class="container mt-5 justify-content-center">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    Registro de Tipo de Producto
+                </div>
+                <div class="card-body">
+                    <form asp-controller="TipoProducto" asp-action="RegistroTipoProducto" method="post">
+                        <div class="form-group">
+                            <label asp-for="Tipo" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Tipo" />
+                            <span asp-validation-for="Tipo" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Estado" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Estado" />
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="FechaCreacion" class="control-label"></label>
+                            <input class="form-control mb-3" type="datetime-local" asp-for="FechaCreacion" />
+                            <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-primary" type="submit">Guardar Tipo de Producto</button>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a class="btn btn-secondary" asp-controller="TipoProducto" asp-action="MostrarTiposProductos">Ver Productos</a>
+                        </div>
+
+                        @if (ViewData["Mensaje"] != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+                        }
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Incluir otros scripts si es necesario -->
+</body>
+</html>

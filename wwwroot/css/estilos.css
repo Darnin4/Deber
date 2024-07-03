@@ -1,0 +1,159 @@
+﻿/* Resetting margins and padding, setting background for entire page */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #333; /* Fondo gris oscuro para toda la página */
+}
+
+/* Styling body with a gradient background and flex layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Usamos min-height para asegurar que el cuerpo ocupe al menos toda la pantalla */
+    background: linear-gradient(91.9deg, #007bff 27.8%, #6c757d 67%); /* Degradado de azul a gris */
+    color: #ffffff; /* Color de texto blanco para el cuerpo */
+}
+
+/* Ensuring main-content takes up remaining space to push footer down */
+.main-content {
+    flex: 1; /* El main-content se expandirá para ocupar todo el espacio restante */
+    padding: 20px;
+}
+
+/* Styling for header and footer */
+header, footer {
+    background-color: #6c757d; /* Fondo gris para encabezado y pie de página */
+    color: #ffffff; /* Texto blanco para encabezado y pie de página */
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* Footer fixed at the bottom */
+footer {
+    margin-top: auto; /* Empuja el footer al final del contenedor flex */
+}
+
+/* Styling for navbar */
+.navbar {
+    background-color: #007bff !important; /* Fondo azul para la barra de navegación */
+    height: 56px; /* Altura fija para la navbar */
+    display: flex;
+    justify-content: flex-end; /* Alineación a la derecha */
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Fixed positioning for the navbar */
+.navbar-fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Asegura que la barra de navegación esté por encima del contenido */
+}
+
+/* Setting text color for various elements */
+header, nav, .container, footer {
+    color: #ffffff; /* Texto blanco */
+}
+
+    /* Styling links within nav and footer */
+    nav a.nav-link, footer a {
+        color: #007bff; /* Color azul para los enlaces en nav y footer */
+    }
+
+/* Navbar brand color */
+.navbar-brand {
+    color: #007bff !important; /* Color azul para la marca de la navbar */
+}
+
+/* Inverting color for navbar toggler icon */
+.navbar-toggler-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #007bff; /* Color azul para el icono de toggler de la navbar */
+}
+
+/* Optional styling for borders and shadows */
+.border-bottom, .border-top {
+    border-color: #007bff; /* Borde azul */
+}
+
+.box-shadow {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 123, 255, 0.5); /* Sombra azul */
+}
+
+/* Sidebar styling */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 56px; /* Debajo de la navbar */
+    left: -250px; /* Oculta la barra lateral por defecto */
+    background-color: #333; /* Fondo gris oscuro para la barra lateral */
+    padding-top: 20px;
+    transition: 0.3s;
+    z-index: 1020; /* Asegura que esté por debajo de la navbar */
+}
+
+    /* Mostrar la barra lateral */
+    .sidebar.open {
+        left: 0;
+    }
+
+    /* Sidebar links styling */
+    .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #007bff; /* Color azul para los enlaces de la barra lateral */
+        display: block;
+        transition: 0.3s;
+    }
+
+        /* Sidebar links hover effect */
+        .sidebar a:hover {
+            background-color: rgba(0, 123, 255, 0.5); /* Fondo azul con transparencia al pasar el ratón */
+        }
+
+    /* Close button for sidebar */
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        cursor: pointer;
+    }
+
+/* Ajuste del contenido principal cuando la barra lateral está abierta */
+.main-content.shifted {
+    margin-left: 250px;
+}
+
+/* Responsive styling for sidebar and main content */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 56px;
+        left: -100%;
+    }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+    .main-content.shifted {
+        margin-left: 0;
+    }
+}
+
+/* Further responsive adjustments for very small screens */
+@media screen and (max-width: 480px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}

@@ -1,0 +1,96 @@
+﻿body {
+    background-color: #000;
+    color: #ff4d4d; /* Rojo brillante para el texto del cuerpo */
+    font-size: 0.9rem; /* Tamaño del texto del cuerpo reducido */
+}
+
+.card {
+    background-color: #333;
+    color: #ff4d4d; /* Rojo brillante para el texto en las tarjetas */
+    font-size: 0.9rem; /* Tamaño del texto en las tarjetas reducido */
+}
+
+.card-header {
+    background-color: #222;
+    color: #ff4d4d; /* Rojo brillante para el texto del encabezado de tarjeta */
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem; /* Tamaño del texto del encabezado de tarjeta */
+}
+
+.form-control {
+    background-color: #000;
+    color: #ff4d4d; /* Rojo brillante para el texto de los controles de formulario */
+    border: 1px solid #ff4d4d; /* Borde rojo brillante */
+    font-size: 0.9rem; /* Tamaño del texto de los controles de formulario reducido */
+}
+
+    .form-control::placeholder {
+        color: #ff4d4d; /* Color de placeholder en rojo brillante */
+    }
+
+.form-group label {
+    color: #ff4d4d; /* Rojo brillante para el texto de las etiquetas del formulario */
+    font-size: 0.9rem; /* Tamaño del texto de las etiquetas del formulario reducido */
+}
+
+.btn-primary {
+    background-color: #ff4d4d; /* Rojo brillante para el fondo del botón primario */
+    border: none;
+    color: #000;
+    font-size: 0.9rem; /* Tamaño del texto del botón reducido */
+}
+
+    .btn-primary:hover {
+        background-color: #e60000; /* Rojo más oscuro al pasar el ratón */
+    }
+
+.alert-danger {
+    background-color: #ff4d4d; /* Fondo rojo brillante para las alertas */
+    color: #fff; /* Texto blanco para las alertas */
+    font-size: 0.9rem; /* Tamaño del texto de las alertas reducido */
+}
+
+a {
+    color: #ff4d4d; /* Rojo brillante para los enlaces */
+}
+
+    a:hover {
+        color: #e60000; /* Rojo más oscuro al pasar el ratón */
+    }
+
+.table {
+    background-color: #000;
+    color: #ff4d4d; /* Rojo brillante para el texto de la tabla */
+    font-size: 0.9rem; /* Tamaño del texto de la tabla reducido */
+}
+
+    .table thead {
+        background-color: #222;
+        color: #ff4d4d; /* Rojo brillante para el texto del encabezado de tabla */
+    }
+
+    .table th, .table td {
+        border: 1px solid #ff4d4d; /* Borde rojo brillante para las celdas de tabla */
+    }
+
+    .table .btn-danger {
+        background-color: #ff4d4d; /* Rojo brillante para el fondo del botón de peligro en tabla */
+        color: #fff; /* Texto blanco para el botón de peligro en tabla */
+        border: none;
+    }
+
+        .table .btn-danger:hover {
+            background-color: #e60000; /* Rojo más oscuro al pasar el ratón */
+        }
+
+.d-grid .btn-secondary {
+    background-color: #ff4d4d; /* Rojo brillante para el fondo del botón secundario */
+    border: none;
+    color: #000;
+    font-size: 0.9rem; /* Tamaño del texto del botón secundario reducido */
+}
+
+    .d-grid .btn-secondary:hover {
+        background-color: #e60000; /* Rojo más oscuro al pasar el ratón */
+    }

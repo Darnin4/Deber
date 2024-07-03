@@ -1,0 +1,62 @@
+﻿@model AppLogins.ViewModels.MostrarClienteVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Listado.css" asp-append-version="true" />
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            @Model.Titulo
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <!-- Utilizamos table-responsive para tablas largas -->
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Cédula</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                            <th>Estado</th>
+                            <th>Fecha Creación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cliente in Model.Clientes)
+                        {
+                            <tr>
+                                <td>@cliente.Id</td>
+                                <td>@cliente.Nombres</td>
+                                <td>@cliente.Apellidos</td>
+                                <td>@cliente.Cedula</td>
+                                <td>@cliente.Direccion</td>
+                                <td>@cliente.Telefono</td>
+                                <td>@cliente.Estado</td>
+                                <td>@cliente.FechaCreacion.ToShortDateString()</td>
+                                <td>
+                                    <form method="get" asp-action="EditarCliente" asp-route-id="@cliente.Id">
+                                        <button type="submit" class="btn btn-primary btn-sm btn-editar">
+                                            <i class="bi bi-pencil"></i> Editar
+                                        </button>
+                                    </form>
+                                    <form method="post" asp-action="EliminarCliente" asp-route-id="@cliente.Id">
+                                        <button type="submit" class="btn btn-danger btn-sm btn-eliminar">
+                                            <i class="bi bi-trash"></i> Eliminar
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

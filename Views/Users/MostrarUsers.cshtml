@@ -1,0 +1,55 @@
+﻿@model AppLogins.ViewModels.MostrarUsersVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Listado.css" asp-append-version="true" />
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            @Model.Titulo
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre Usuario</th>
+                        <th>Rol</th>
+                        <th>Clave</th>
+                        <th>Estado</th>
+                        <th>Fecha Creación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model.Users)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.NombreUsuario</td>
+                            <td>@user.Rol</td>
+                            <td>@Html.Raw("********")</td>
+                            <td>@user.Estado</td>
+                            <td>@user.FechaCreacion.ToShortDateString()</td>
+                            <td>
+                                <form method="get" asp-action="EditarUsers" asp-route-id="@user.Id">
+                                    <button type="submit" class="btn btn-primary btn-sm btn-editar">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </button>
+                                </form>
+                                <form method="post" asp-action="EliminarUsers" asp-route-id="@user.Id">
+                                    <button type="submit" class="btn btn-danger btn-sm btn-eliminar">
+                                        <i class="bi bi-trash"></i> Eliminar
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

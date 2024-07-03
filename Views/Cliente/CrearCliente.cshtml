@@ -1,0 +1,85 @@
+﻿@model AppLogins.ViewModels.ClienteVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Clientes</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/Registro.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container mt-5 justify-content-center">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    Clientes
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Cliente" asp-action="CrearCliente" method="post">
+                        <div class="form-group">
+                            <label asp-for="Nombres" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Nombres" />
+                            <span asp-validation-for="Nombres" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Apellidos" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Apellidos" />
+                            <span asp-validation-for="Apellidos" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Cedula" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Cedula" />
+                            <span asp-validation-for="Cedula" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Direccion" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Direccion" />
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Telefono" class="control-label"></label>
+                            <input class="form-control mb-3" asp-for="Telefono" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Estado" class="control-label"></label>
+                            <select asp-for="Estado" class="form-control">
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                            </select>
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="FechaCreacion" class="control-label"></label>
+                            <input class="form-control mb-3" type="datetime-local" asp-for="FechaCreacion" />
+                            <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-primary" type="submit">Guardar Cliente</button>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a class="btn btn-secondary" asp-controller="Cliente" asp-action="MostrarClientes">Ver Clientes</a>
+                        </div>
+
+                        @if (ViewData["Mensaje"] != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+                        }
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
